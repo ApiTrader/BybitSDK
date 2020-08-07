@@ -34,4 +34,3 @@ setuptools.setup(
     tests_require=test_requirements,
  )
 
-# setup.py sdist bdist_wheel

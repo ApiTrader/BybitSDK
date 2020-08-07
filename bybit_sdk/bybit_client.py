@@ -5,15 +5,15 @@ import hashlib
 import json
 import websocket
 
-import bybit_sdk.bybit_active_orders as active_orders
-import bybit_sdk.bybit_conditional_orders as conditional_orders
-import bybit_sdk.bybit_executions as executions
-import bybit_sdk.bybit_funding as funding
-import bybit_sdk.bybit_market_data as market_data
-import bybit_sdk.bybit_positions as positions
-import bybit_sdk.bybit_wallet as wallet
-import bybit_sdk.bybit_websockets as bws
-import bybit_sdk.bybit_kline as kline
+import bybit_sdk.libs.bybit_active_orders as active_orders
+import bybit_sdk.libs.bybit_conditional_orders as conditional_orders
+import bybit_sdk.libs.bybit_executions as executions
+import bybit_sdk.libs.bybit_funding as funding
+import bybit_sdk.libs.bybit_market_data as market_data
+import bybit_sdk.libs.bybit_positions as positions
+import bybit_sdk.libs.bybit_wallet as wallet
+import bybit_sdk.libs.bybit_websockets as bws
+import bybit_sdk.libs.bybit_kline as kline
 
 
 
@@ -27,7 +27,7 @@ class ByBitClient(active_orders.ActiveOrders
                 , bws.BybitWebSockets
                 , kline.HistoricalKline):
 
-    def __init__(self, base_url, api_secret, api_key, Session=None, logger=None, web_socket_url=None):
+    def __init__(self, base_url='https://api-bybit.com/', api_secret=None, api_key=None, Session=None, logger=None, web_socket_url=None):
         """
         Link: https://bybit-exchange.github.io/docs/inverse/#t-introduction
         """

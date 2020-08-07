@@ -11,7 +11,7 @@ from bybit_sdk.bybit_client import ByBitClient
 # set required variables
 base_url = 'https://api-testnet.bybit.com/'
 api_key = '<YOUR API KEY>'
-api_secret = '<YOUR API SECRET>'
+api_secret = '<YOUR API SECRET>' # required parameter but if you use open endpoints then we do not check them
 web_socket_url = '<WEB_SOCKET_URL>' # Websocket Url is an optional parameter only needed for web socket data. 
 
 # create platform client
