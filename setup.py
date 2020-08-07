@@ -6,6 +6,14 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 
+requires = [
+    'websocket-client>=0.53.0', 
+    'requests>=2.22.0'
+
+]
+test_requirements = ['pytest>=3']
+
+
 setuptools.setup(
     name='bybit_sdk',  
     version='0.1',
@@ -23,6 +31,8 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     python_requires='>=3.5',
+    install_requires=requires,
+    tests_require=test_requirements,
  )
 
 # setup.py sdist bdist_wheel
