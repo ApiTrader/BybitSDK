@@ -15,16 +15,15 @@ test_requirements = ['pytest>=3']
 
 
 setuptools.setup(
-    name='bybitsdk',  
+    name='bybit_sdk',  
     version='0.1',
-    scripts=['setup'] ,
     author="ApiTrader",
     author_email="printingpresstrader.one@gmail.com",
     description="A library to interact with the Bybit APIs",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/ApiTrader/BybitSDK",
-    packages=['bybitsdk'],
+    packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
