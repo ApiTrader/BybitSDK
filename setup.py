@@ -15,7 +15,7 @@ test_requirements = ['pytest>=3']
 
 
 setuptools.setup(
-    name='bybit_sdk',  
+    name='bybitsdk',  
     version='0.1',
     scripts=['setup'] ,
     author="ApiTrader",
