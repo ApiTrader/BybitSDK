@@ -9,7 +9,7 @@ class MarketData(market_data_transforms.MarketDataTransforms):
 
         Link: https://bybit-exchange.github.io/docs/inverse/#t-latestsymbolinfo
 
-        :param api_url: the api url. Default is 'v2/public/tickers'
+        :param api_url: the api url. Default is '/v2/public/tickers'
         :type api_url: string
         :return json response data
         """

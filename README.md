@@ -1,6 +1,13 @@
 # ByBit Integration
 
-The code in this directory is an sdk for interacting with the bybit platform.
+The code in this directory is an sdk for interacting with the bybit platform using Python.
+
+## Installation
+
+Personally, I choose to use an anaconda environment with Python 3.6+. With a fresh environment you should be able to install the environment with the following pip command. 
+```
+pip install git+https://github.com/ApiTrader/BybitSDK.git@master
+```
 
 ## Getting started
 
