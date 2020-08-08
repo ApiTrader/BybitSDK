@@ -11,7 +11,7 @@ requires = [
     'requests>=2.22.0'
 
 ]
-test_requirements = ['pytest>=3.5', 'websocket-client>=0.53.0', 'requests>=2.22.0', 'git+https://github.com/ApiTrader/BybitSDK.git@master']
+test_requirements = ['pytest>=3.5', 'websocket-client>=0.53.0', 'requests>=2.22.0']
 
 
 setuptools.setup(
