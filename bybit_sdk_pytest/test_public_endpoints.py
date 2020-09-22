@@ -5,3 +5,5 @@ def test_server_time():
     client = ByBitClient()
     res = client.get_server_time()
     assert res.get('ret_code') == 0
+
+

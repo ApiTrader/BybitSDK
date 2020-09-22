@@ -27,7 +27,7 @@ class ByBitClient(active_orders.ActiveOrders
                 , bws.BybitWebSockets
                 , kline.HistoricalKline):
 
-    def __init__(self, base_url='https://api-testnet.bybit.com/', api_secret='', api_key='', Session=None, logger=None, web_socket_url='wss://stream-testnet.bybit.com/realtime'):
+    def __init__(self, base_url='https://api-testnet.bybit.com/', api_secret='', api_key='', recv_window=5000, Session=None, logger=None, web_socket_url='wss://stream-testnet.bybit.com/realtime'):
         """
         Link: https://bybit-exchange.github.io/docs/inverse/#t-introduction
         """
@@ -43,6 +43,7 @@ class ByBitClient(active_orders.ActiveOrders
         self.ws_auth = False
         self.Session = Session
         self.logger = logger
+        self.recv_window = recv_window
 
 
     def get_param_string(self, parameters=None):
@@ -57,6 +58,7 @@ class ByBitClient(active_orders.ActiveOrders
         time_to_send = int(float(self.get_server_time()['time_now'][0:10]+"000"))
         parameters['api_key'] = self.api_key
         parameters['timestamp'] = time_to_send
+        parameters['recv_window'] = self.recv_window
 
         _val = '&'.join([str(k)+"="+str(v) for k, v in sorted(parameters.items()) if (k != 'sign') and (v is not None)])
         sign = str(hmac.new(bytes(self.api_secret, "utf-8"), bytes(_val, "utf-8"), digestmod="sha256").hexdigest())
