@@ -3,7 +3,7 @@ import json
 
 class MarketData(market_data_transforms.MarketDataTransforms):
 
-    def get_symbol_data(self, api_url='v2/public/tickers'):
+    def get_symbol_data(self, symbol=None, api_url='v2/public/tickers'):
         """
         Gets ticker information for all symbols. 
 
@@ -13,7 +13,9 @@ class MarketData(market_data_transforms.MarketDataTransforms):
         :type api_url: string
         :return json response data
         """
-        data = self.get_request(api_url)
+        params_dict = {'symbol': symbol}
+        
+        data = self.get_request(api_url, parameters=params_dict)
         return json.loads(data.decode('utf-8'))
 
     def get_order_book(self, symbol="BTCUSD", api_url="/v2/public/orderBook/L2"):
