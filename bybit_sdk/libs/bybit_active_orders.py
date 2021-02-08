@@ -62,22 +62,14 @@ class ActiveOrders(orders.OrderTransforms):
 
 
 
-    def get_active_order(self, order_id=None, order_link_id=None, symbol='BTCUSD', order=None, page=None, limit=None, order_status=None, api_url='/open-api/order/list'):
+    def get_active_orders(self, symbol='BTCUSD', direction=None, cursor=None, limit=None, order_status=None, api_url='/v2/private/order/list'):
         """ 
         Gets active order list on the ByBit exchange.
 
         Link: https://bybit-exchange.github.io/docs/inverse/#t-getactive
 
-        :param order_id: Order Id
-        :type order_id: string.
-        :param order_link_id: custom order id
-        :type order_link_id: string.
         :param symbol: Contract type. Default is BTCUSD. 
         :type symbol: string.
-        :param order: Sort field is created_at, ascending or descending. Default as descending (desc, asc). 
-        :type order: string
-        :param page: 	Page. Default getting first page data
-        :type page: integer.
         :param limit: Limit for data size per page, max size is 50. Default as showing 20 pieces of data per page
         :type limit: integer
         :param order_status: Query your orders for all statuses if 'order_status' is empty. If you want to query orders with specific statuses , you can pass the order_status split by ','. Available order_status: Created, New, PartiallyFilled, Filled, Cancelled, Rejected
@@ -86,13 +78,11 @@ class ActiveOrders(orders.OrderTransforms):
         :type api_url: Required. string.
         """
 
-        params_dict = {'order_id': order_id,
-                    'order_link_id': order_link_id,
-                    'symbol': symbol,
-                    'order': order, 
-                    'page': page, 
+        params_dict = {'symbol': symbol,
                     'limit': limit, 
-                    'order_status': order_status
+                    'order_status': order_status,
+                    'direction': direction,
+                    'cursor': cursor
                     }
 
         # get rid of any values that are 'None' 
